@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>Countdown timer in seconds</title>
+	</head>
+	<body>
+		You will be redirected in <span id="timer"></span> seconds.
+	</body>
+	<script>
+		var counter = 10;
+		var element = document.getElementById("timer");
+		element.innerHTML = counter.toString();
+
+		var t = setInterval(function() {
+			counter--;
+			if(counter < 0) {        
+				clearInterval(t);
+			} else {
+				element.innerHTML = counter.toString();
+			}
+		}, 1000);
+	</script>
+<html>

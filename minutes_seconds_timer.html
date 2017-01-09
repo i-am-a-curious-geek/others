@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>Countdown timer in minutes and seconds</title>
+	</head>
+	<body>
+		Your session will time out in <span id="timer"></span>.
+	</body>
+	<script>
+		window.onload = function() {
+			var duration = 60 * 5; // in seconds
+			var timer = duration;
+			var minutes = parseInt(timer / 60, 10); 
+			var seconds = parseInt(timer % 60, 10);
+				
+			var element = document.getElementById("timer");    
+			element.innerHTML = minutes + " minutes " + seconds + " seconds";
+
+			var t = setInterval(function () {     
+			  if (--timer < 0) {
+				timer = duration;
+				clearInterval(t);
+			  } 
+			  
+			  minutes = parseInt(timer / 60, 10);
+			  seconds = parseInt(timer % 60, 10);				
+			  
+			  element.innerHTML = minutes + " minutes " + seconds + " seconds";
+			}, 1000);
+		}
+	</script>
+<html>
